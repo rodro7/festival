@@ -2,9 +2,10 @@
 <!-- saved from url=(0087)https://keithclark.co.uk/articles/pure-css-parallax-websites/demo3-webkit-overflow-fix/ -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<meta name="viewport" content="width=device-width">
-<title>A grouped pure CSS parallax demo (with webkit overflow fix) by Keith Clark</title>
-<meta name="description" content="Demonstration of a webkit-specific work around to fix a horizontal scrolling issue with CSS parallax">
+ <title>Festival del lago</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <style>
 
   /* Parallax base styles
@@ -56,11 +57,19 @@
     transform: translateZ(-300px) scale(2);
     z-index: 3;
   }
+  .parallax__layer--back.faster{
+    -webkit-transform: translateZ(-100px) scale(1.3);
+    transform: translateZ(-100px) scale(1.3);
+  }
 
   .parallax__layer--deep {
     -webkit-transform: translateZ(-600px) scale(3);
     transform: translateZ(-600px) scale(3);
     z-index: 2;
+  }
+  .parallax__layer--deep.faster {
+    -webkit-transform: translateZ(-400px) scale(2);
+    transform: translateZ(-400px) scale(2);
   }
 
 
@@ -69,6 +78,8 @@
 
   body, html {
     overflow: hidden;
+    background-color: #1b1c38;
+    color: #ffffff;
   }
 
   body {
@@ -95,93 +106,198 @@
   }
 
 
+	.center {
+	    position: absolute;
+    	left: 50%;
+    	top: 50%;
+   		-webkit-transform: translate(-50%, -50%);
+    	transform: translate(-50%, -50%);
+  	}
 
   /* style the groups
   --------------------------------------------- */
+  #group0 {
+    z-index: 0; /* slide over group 2 */
 
+  }
+  #group0.parallax__layer--base {
+  	background-color: #1b1c38;
+	}
   #group1 {
     z-index: 5; /* slide over group 2 */
   }
   #group1 .parallax__layer--base {
-    background: rgb(102,204,102);
-  }
+  	  background-color: #22f2;
+   }
 
   #group2 {
     z-index: 3; /* slide under groups 1 and 3 */
   }
   #group2 .parallax__layer--back {
-    background: rgb(123,210,102);
-  }
+    }
 
   #group3 {
     z-index: 4; /* slide over group 2 and 4 */
   }
   #group3 .parallax__layer--base {
-    background: rgb(153,216,101);
-  }
+    }
 
   #group4 {
     z-index: 2; /* slide under group 3 and 5 */
   }
   #group4 .parallax__layer--deep {
-    background: rgb(184,223,101);
-  }
+    }
 
   #group5 {
     z-index: 3; /* slide over group 4 and 6 */
   }
   #group5 .parallax__layer--base {
-    background: rgb(214,229,100);
-  }
+    }
 
   #group6 {
     z-index: 2; /* slide under group 5 and 7 */
   }
   #group6 .parallax__layer--back {
-    background: rgb(245,235,100);
-  }
+    }
 
   #group7 {
     z-index: 3; /* slide over group 7 */
   }
   #group7 .parallax__layer--base {
-    background: rgb(255,241,100);
+    }
+  header{
+  	background-color: transparent;
+  	width: 100%;
+  	position: fixed;
+  	height: 50px;
+  	z-index: 1;
+  } 
+  .menu{
+  	display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+    line-height: 50px;
+  }
+  .menu li{
+  	transform: scale(1);
+  	opacity: 1;
+  	transition: all 1s ease;
+  	transform-origin: 50% 50%;
+  }
+ 
+  .menu li.hidden{
+  	transform: scale(0);
+  	opacity: 0;
+  	width: 0;
+  }
+   .menu li.logo{
+  	width: 150px;
+  }
+  .menu li a{
+  	color: #ef88b7;
+  	cursor: pointer;
+  	text-decoration: none;
+  }
+  .menu li a:hover, .menu li.active a {
+  	color: #f19c4c;
+
+  }
+  img[src^=logo]{
+  	cursor: pointer;
+  }
+  img[src^=festival]{
+  	    width: 300px;
+    	margin-top: -200px;
+  }
+  img[src^=lago]{
+  	    width: 400px;
+    	margin-top: 10px;
+    	margin-left: -42px;
+  }
+  img[src^=encantado]{
+  	    width: 600px;
+    margin-top: 200px;
+  }
+  .center-text{
+  	text-align: center;
+  }
+  .escenario_1, .bandas1{
+  	margin-top: 50px;
   }
 
-
-  /* misc
-  --------------------------------------------- */
-  .demo__info {
-    position: absolute;
-    z-index:100;
-    bottom: 1vh;
-    top: auto;
-    font-size:80%;
-    text-align:center;
-    width: 100%;
-  }
 </style>
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="smoothscroll.min.js"></script>
 </head>
 
 <body>
   <header>
-    <nav>
-        <ul>
-            <li></li>
+  	<nav>
+        <ul class="menu">
+        	<li class="brand hidden">
+        		<a class="internal-link" href="#inicio">
+        			<img src="logo.png" width="150px">
+        		</a>
+        	</li>
+            <li><a class="internal-link" href="#bandas">Bandas</a></li>
+
+            <li><a class="internal-link" href="#info">Informacion</a></li>
+
+            <li><a class="internal-link" href="#fiesta">Vivir la fiesta</a></li>
+
+            <li><a href="https://tickantel.com.uy/inicio/espectaculo/40004026/espectaculo/Festival%20del%20Lago%20Encantado?1" target="__blank">Entradas</a></li>
+
+            <li><a class="internal-link" href="#contacto">Contacto</a></li>
         </ul>
     </nav>
   </header>
-  <div class="demo__info">
-    Pure CSS parallax scroll demo #3 by Keith Clark. Please read the <a href="https://keithclark.co.uk/articles/pure-css-parallax-websites/">blog post</a> for more information.
-  </div>
 
-  <div class="parallax">
-    <div id="group1" class="parallax__group">
+  <div class="parallax-main parallax">
+  	<div id="inicio" class="parallax__group">
+  	  <div class="parallax__layer parallax__layer--fore">
+        <div class="title">
+        	<img src="festival.png"/>
+        </div>
+      </div>
       <div class="parallax__layer parallax__layer--base">
-        <div class="title">Base Layer</div>
+        <div class="title">
+        	<img src="lago.png"/>
+        	</div>
+      </div>
+      <div class="parallax__layer parallax__layer--back faster">
+        	<div class="title">
+        		<img src="encantado.png"/>
+        	</div>
+       </div>
+       <div class="parallax__layer parallax__layer--deep">
+        	<img src="cloud.png" width="200px" />
+      </div>
+        <div class="parallax__layer parallax__layer--deep">
+        	<img src="cloud.png" width="100px" style="float: right;transform: scaleX(-1) scaleY(1);"/>
       </div>
     </div>
-    <div id="group2" class="parallax__group">
+     <div id="bandas" class="parallax__group">
+    	<div class="parallax__layer parallax__layer--base">
+    		<div class="center-text escenario_1">ESCENARIO 1	</div>
+      	</div>
+	  	<div class="parallax__layer parallax__layer--back faster">
+	  		<img src='celeste.png' heigh="100px" width="100px;">
+      	</div>
+	    <div class="parallax__layer parallax__layer--fore">
+	    	<div class="title bandas1">
+				
+		
+	      	NTVG, LA VELA PUERCA, LA TRAMPA
+	      	BUENOS MUCHACHOS, HUGO FATORUSO, FERNANDO CABRERA
+	      	RUBEN RADA Y BIG BAND AUDEM, LA TRIPLE NELSON
+	      	EL CUARTETO, ONCE TIROS
+	      		EL CUARTETO, ONCE TIROS	</div>
+	    </div> 
+    </div>
+    <div id="info" class="parallax__group">
       <div class="parallax__layer parallax__layer--base">
         <div class="title">Base Layer</div>
       </div>
@@ -189,7 +305,7 @@
         <div class="title">Background Layer</div>
       </div>
     </div>
-    <div id="group3" class="parallax__group">
+    <div id="fiesta" class="parallax__group">
       <div class="parallax__layer parallax__layer--fore">
         <div class="title">Foreground Layer</div>
       </div>
@@ -197,9 +313,22 @@
         <div class="title">Base Layer</div>
       </div>
     </div>
-    <div id="group4" class="parallax__group">
+    <div id="contacto" class="parallax__group">
       <div class="parallax__layer parallax__layer--base">
-        <div class="title">Base Layer</div>
+        	
+        	<form class='center'>
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">Correo electronico</label>
+			    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+
+			  </div>
+			 <div class="form-group">
+			    <label for="exampleFormControlTextarea1">Escriba su mensaje aqui</label>
+			    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+			  </div>
+			  <button type="submit" class="btn btn-primary">Enviar</button>
+			</form>
+         
       </div>
       <div class="parallax__layer parallax__layer--back">
         <div class="title">Background Layer</div>
@@ -208,27 +337,53 @@
         <div class="title">Deep Background Layer</div>
       </div>
     </div>
-    <div id="group5" class="parallax__group">
-      <div class="parallax__layer parallax__layer--fore">
-        <div class="title">Foreground Layer</div>
-      </div>
-      <div class="parallax__layer parallax__layer--base">
-        <div class="title">Base Layer</div>
-      </div>
-    </div>
-    <div id="group6" class="parallax__group">
-      <div class="parallax__layer parallax__layer--back">
-        <div class="title">Background Layer</div>
-      </div>
-      <div class="parallax__layer parallax__layer--base">
-        <div class="title">Base Layer</div>
-      </div>
-    </div>
-    <div id="group7" class="parallax__group">
-      <div class="parallax__layer parallax__layer--base">
-        <div class="title">Base Layer</div>
-      </div>
-    </div>
   </div>
+  <script>
+  	window.__forceSmoothScrollPolyfill__ = true;
+  	function setState(section){
+		history.pushState(null, null, section);
+		$('.brand').toggleClass('hidden', (section === '#inicio'));
+  	}
+  	$('.menu .internal-link').bind('click', (e) => {
+  		e.preventDefault();
+  		var section = e.currentTarget.getAttribute('href');	
+		document.querySelector(`.parallax-main ${section}`).scrollIntoView({ 
+		  behavior: 'smooth' 
+		});
+		setState(section);
+		$('.active').removeClass('active');
+		$(e.currentTarget.parent).addClass('active')
+  	});
+  	var lastId,
+    topMenu = $(".menu"),
+    // All list items
+    menuItems = topMenu.find(".internal-link"),
+    scrollItems = menuItems.map(function(){
+      var item = $($(this).attr("href"));
+      if (item.length) { return item; }
+    });
+    $('.parallax-main').scroll(function(){
+	   // Get container scroll position
+	   var fromTop = $(this).scrollTop();
+	   
+	   // Get id of current scroll item
+	   var cur = scrollItems.map(function(){
+	     if ($(this).offset().top < ($(this).height()/2))
+	       return this;
+	   });
+	   // Get the id of the current element
+	   cur = cur[cur.length-1];
+	   var id = cur && cur.length ? cur[0].id : "";
+	   
+	   if (lastId !== id) {
+	       lastId = id;
+	       // Set/remove active class
+	       menuItems
+	         .parent().removeClass("active")
+	         .end().filter(`[href='#${id}']`).parent().addClass("active");
+	         setState(`#${id}`);
+	   }                   
+	});
 
+  </script>
 </body></html>

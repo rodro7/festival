@@ -1,0 +1,22 @@
+{
+  "name": "festival",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodro7/festival.git"
+  },
+  "author": "Rodrigo Rossi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodro7/festival/issues"
+  },
+  "homepage": "https://github.com/rodro7/festival#readme",
+  "devDependencies": {
+    "gulp-server-livereload": "^1.9.2"
+  }
+}
