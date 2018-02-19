@@ -178,6 +178,7 @@
     justify-content: space-around;
     list-style: none;
     line-height: 50px;
+    padding-right: 30px;
   }
   .menu li{
   	transform: scale(1);
@@ -340,21 +341,7 @@
   </div>
   <script>
   	window.__forceSmoothScrollPolyfill__ = true;
-  	function setState(section){
-		history.pushState(null, null, section);
-		$('.brand').toggleClass('hidden', (section === '#inicio'));
-  	}
-  	$('.menu .internal-link').bind('click', (e) => {
-  		e.preventDefault();
-  		var section = e.currentTarget.getAttribute('href');	
-		document.querySelector(`.parallax-main ${section}`).scrollIntoView({ 
-		  behavior: 'smooth' 
-		});
-		setState(section);
-		$('.active').removeClass('active');
-		$(e.currentTarget.parent).addClass('active')
-  	});
-  	var lastId,
+	var lastId,
     topMenu = $(".menu"),
     // All list items
     menuItems = topMenu.find(".internal-link"),
@@ -362,6 +349,25 @@
       var item = $($(this).attr("href"));
       if (item.length) { return item; }
     });
+
+  	function setState(section){
+  		lastId = section.replace('#', '');
+		history.pushState(null, null, section);
+		$('.brand').toggleClass('hidden', (section === '#inicio'));
+  	}
+  	var clicked = false;
+  	$('.menu .internal-link').bind('click', (e) => {
+  		e.preventDefault();
+  		var section = e.currentTarget.getAttribute('href');	
+  		clicked = true;
+		document.querySelector(`.parallax-main ${section}`).scrollIntoView({ 
+		  behavior: 'smooth' 
+		});
+		setState(section);
+		$('.active').removeClass('active');
+		$(e.currentTarget.parent).addClass('active');
+  	});
+  
     $('.parallax-main').scroll(function(){
 	   // Get container scroll position
 	   var fromTop = $(this).scrollTop();
@@ -374,8 +380,10 @@
 	   // Get the id of the current element
 	   cur = cur[cur.length-1];
 	   var id = cur && cur.length ? cur[0].id : "";
-	   
-	   if (lastId !== id) {
+	   if ( clicked ) { 
+	   		clicked = !(lastId === id);
+	   }
+ 	   if (lastId !== id && !clicked) {
 	       lastId = id;
 	       // Set/remove active class
 	       menuItems
