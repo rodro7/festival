@@ -5,9 +5,13 @@
  <title>Festival del lago</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="preload" href="/statics/Blorp.ttf" as="font">
+ 
 <style>
-
+  @font-face{
+    font-family: Blorp;
+    src: url('/statics/Blorp.ttf') format('truetype');
+  }
   /* Parallax base styles
   --------------------------------------------- */
 
@@ -77,9 +81,10 @@
   --------------------------------------------- */
 
   body, html {
-    overflow: hidden;
-    background-color: #1b1c38;
-    color: #ffffff;
+    overflow: hidden !important;
+    background-color: #1b1c38 !important;
+    color: #ffffff !important;
+    font-family: Blorp !important;
   }
 
   body {
@@ -228,10 +233,11 @@
   }
 
 </style>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="smoothscroll.min.js"></script>
+  <script src="/statics/scripts/smoothscroll.min.js"></script>
 </head>
 
 <body>
@@ -240,7 +246,7 @@
         <ul class="menu">
         	<li class="brand hidden">
         		<a class="internal-link" href="#inicio">
-        			<img src="logo.png" width="150px">
+        			<img src="/statics/icons/logo.svg" width="150px">
         		</a>
         	</li>
             <li><a class="internal-link" href="#bandas">Bandas</a></li>
@@ -317,7 +323,7 @@
     <div id="contacto" class="parallax__group">
       <div class="parallax__layer parallax__layer--base">
         	
-        	<form class='center'>
+        	<form class='center' action="mailto:rodrigo.rossi.trabal@gmail.com" method="POST">
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">Correo electronico</label>
 			    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
