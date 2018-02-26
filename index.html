@@ -6,238 +6,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preload" href="/statics/Blorp.ttf" as="font">
+  <link rel="preload" href="/statics/parallax.css" as="style">
+  <link rel="preload" href="/statics/main.css" as="style">
  
 <style>
   @font-face{
     font-family: Blorp;
     src: url('/statics/Blorp.ttf') format('truetype');
   }
-  /* Parallax base styles
-  --------------------------------------------- */
-
-  .parallax {
-    height: 500px; /* fallback for older browsers */
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-perspective: 300px;
-    perspective: 300px;
-    -webkit-perspective-origin-x: 100%;
-    perspective-origin-x: 100%;
-  }
-
-  .parallax__group {
-    position: relative;
-    height: 500px; /* fallback for older browsers */
-    height: 100vh;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-  }
-
-  .parallax__layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    -webkit-transform-origin-x: 100%;
-    transform-origin-x: 100%;
-  }
-
-  .parallax__layer--fore {
-    -webkit-transform: translateZ(90px) scale(.7);
-    transform: translateZ(90px) scale(.7);
-    z-index: 1;
-  }
-
-  .parallax__layer--base {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    z-index: 4;
-  }
-
-  .parallax__layer--back {
-    -webkit-transform: translateZ(-300px) scale(2);
-    transform: translateZ(-300px) scale(2);
-    z-index: 3;
-  }
-  .parallax__layer--back.faster{
-    -webkit-transform: translateZ(-100px) scale(1.3);
-    transform: translateZ(-100px) scale(1.3);
-  }
-
-  .parallax__layer--deep {
-    -webkit-transform: translateZ(-600px) scale(3);
-    transform: translateZ(-600px) scale(3);
-    z-index: 2;
-  }
-  .parallax__layer--deep.faster {
-    -webkit-transform: translateZ(-400px) scale(2);
-    transform: translateZ(-400px) scale(2);
-  }
-
-
-  /* demo styles
-  --------------------------------------------- */
-
-  body, html {
-    overflow: hidden !important;
-    background-color: #1b1c38 !important;
-    color: #ffffff !important;
-    font-family: Blorp !important;
-  }
-
-  body {
-    font: 100% / 1.5 Arial;
-  }
-
-  * {
-    margin:0;
-    padding:0;
-  }
-
-  .parallax {
-    font-size: 200%;
-  }
-
-   /* centre the content in the parallax layers */
-  .title {
-    text-align: center;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-
-
-	.center {
-	    position: absolute;
-    	left: 50%;
-    	top: 50%;
-   		-webkit-transform: translate(-50%, -50%);
-    	transform: translate(-50%, -50%);
-  	}
-
-  /* style the groups
-  --------------------------------------------- */
-  #group0 {
-    z-index: 0; /* slide over group 2 */
-
-  }
-  #group0.parallax__layer--base {
-  	background-color: #1b1c38;
-	}
-  #group1 {
-    z-index: 5; /* slide over group 2 */
-  }
-  #group1 .parallax__layer--base {
-  	  background-color: #22f2;
-   }
-
-  #group2 {
-    z-index: 3; /* slide under groups 1 and 3 */
-  }
-  #group2 .parallax__layer--back {
-    }
-
-  #group3 {
-    z-index: 4; /* slide over group 2 and 4 */
-  }
-  #group3 .parallax__layer--base {
-    }
-
-  #group4 {
-    z-index: 2; /* slide under group 3 and 5 */
-  }
-  #group4 .parallax__layer--deep {
-    }
-
-  #group5 {
-    z-index: 3; /* slide over group 4 and 6 */
-  }
-  #group5 .parallax__layer--base {
-    }
-
-  #group6 {
-    z-index: 2; /* slide under group 5 and 7 */
-  }
-  #group6 .parallax__layer--back {
-    }
-
-  #group7 {
-    z-index: 3; /* slide over group 7 */
-  }
-  #group7 .parallax__layer--base {
-    }
-  header{
-  	background-color: transparent;
-  	width: 100%;
-  	position: fixed;
-  	height: 50px;
-  	z-index: 1;
-  } 
-  .menu{
-  	display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    list-style: none;
-    line-height: 50px;
-    padding-right: 30px;
-  }
-  .menu li{
-  	transform: scale(1);
-  	opacity: 1;
-  	transition: all 1s ease;
-  	transform-origin: 50% 50%;
-  }
- 
-  .menu li.hidden{
-  	transform: scale(0);
-  	opacity: 0;
-  	width: 0;
-  }
-   .menu li.logo{
-  	width: 150px;
-  }
-  .menu li a{
-  	color: #ef88b7;
-  	cursor: pointer;
-  	text-decoration: none;
-  }
-  .menu li a:hover, .menu li.active a {
-  	color: #f19c4c;
-
-  }
-  img[src^=logo]{
-  	cursor: pointer;
-  }
-  img[src^=festival]{
-  	    width: 300px;
-    	margin-top: -200px;
-  }
-  img[src^=lago]{
-  	    width: 400px;
-    	margin-top: 10px;
-    	margin-left: -42px;
-  }
-  img[src^=encantado]{
-  	    width: 600px;
-    margin-top: 200px;
-  }
-  .center-text{
-  	text-align: center;
-  }
-  .escenario_1, .bandas1{
-  	margin-top: 50px;
-  }
-
 </style>
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="statics/parallax.css" />
+  <link rel="stylesheet" type="text/css" href="statics/main.css" />
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous" defer async></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" defer async></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="/statics/scripts/smoothscroll.min.js"></script>
+  <script src="/statics/scripts/smoothscroll.min.js" defer async></script>
 </head>
 
 <body>
@@ -247,7 +32,7 @@
         	<li class="brand hidden">
         		<a class="internal-link" href="#inicio">
         			<img src="/statics/icons/logo.svg" width="150px">
-        		</a>
+        		</a> 
         	</li>
             <li><a class="internal-link" href="#bandas">Bandas</a></li>
 
@@ -265,63 +50,125 @@
   <div class="parallax-main parallax">
   	<div id="inicio" class="parallax__group">
   	  <div class="parallax__layer parallax__layer--fore">
-        <div class="title">
-        	<img src="festival.png"/>
+        	<div class="festival-icon"></div>
         </div>
-      </div>
       <div class="parallax__layer parallax__layer--base">
-        <div class="title">
-        	<img src="lago.png"/>
-        	</div>
+        	<div class="del_lago-icon"></div>
       </div>
       <div class="parallax__layer parallax__layer--back faster">
-        	<div class="title">
-        		<img src="encantado.png"/>
-        	</div>
+          <div class="last-line">      
+            <div class="encantado-icon"></div>
+            <div class="fecha"></div>
+          </div>
+        
        </div>
        <div class="parallax__layer parallax__layer--deep">
-        	<img src="cloud.png" width="200px" />
+        	<img src="/statics/icons/nube_der.svg" width="200px" style="position: relative;left:-20px"/>
       </div>
         <div class="parallax__layer parallax__layer--deep">
-        	<img src="cloud.png" width="100px" style="float: right;transform: scaleX(-1) scaleY(1);"/>
+        	<img src="/statics/icons/nube_der.svg" width="200px" style="position: relative;right:-20px;float: right;transform: scaleX(-1) scaleY(1);"/>
       </div>
     </div>
-     <div id="bandas" class="parallax__group">
-    	<div class="parallax__layer parallax__layer--base">
-    		<div class="center-text escenario_1">ESCENARIO 1	</div>
-      	</div>
+    <div id="bandas" class="parallax__group">
+      <div class="parallax__layer parallax__layer--base"> 
+        <img src="/statics/icons/leafs.svg"  style=""/>
+      </div>
+      <div class="parallax__layer parallax__layer--deep">
+          <div class="laterales"></div>
+      </div>
+      <div class="parallax__layer parallax__layer--deep">
+      
+        <img src="/statics/icons/nube_der.svg" width="200px" style="position: relative;right:-20px;float: right;transform: scaleX(-1) scaleY(1);"/>        
+      </div>
 	  	<div class="parallax__layer parallax__layer--back faster">
-	  		<img src='celeste.png' heigh="100px" width="100px;">
-      	</div>
+	  		<img src='/statics/icons/celeste.svg' heigh="100px" width="100px;">
+      </div>
 	    <div class="parallax__layer parallax__layer--fore">
-	    	<div class="title bandas1">
-				
-		
-	      	NTVG, LA VELA PUERCA, LA TRAMPA
-	      	BUENOS MUCHACHOS, HUGO FATORUSO, FERNANDO CABRERA
-	      	RUBEN RADA Y BIG BAND AUDEM, LA TRIPLE NELSON
-	      	EL CUARTETO, ONCE TIROS
-	      		EL CUARTETO, ONCE TIROS	</div>
+	    	<div class="title bandas">
+          <h1>Escenario 1</h1>
+          <div class="escenario-1">
+  				  
+  		      <section>
+              <h2>Jueves</h2>
+              <p>
+                Audem Big Band con Rada, Fattoruso, Cabrera y Taranto.
+                Milongas Extremas
+                Tribu di Rasta 
+                Boomerang
+                Madam 
+                Abuela Coca
+                La Triple Nelson
+                NTVG
+              </p>
+            </section>
+            <section>
+              <h2>Viernes</h2>
+              <p>
+                Gabriel Peluffo
+                Sucia Esquina
+                Vitrola Sur
+                Pecho 
+                La Saga 
+                Snake 
+                La Tabaré
+                Trotsky Vengarán
+                La Vela Puerca
+              </p>
+            </section>
+            <section>
+              <h2>Sábado</h2>
+              <p>
+                Diego Drexler 
+                RM2
+                Congo 
+                Mandrake y Los Druidas
+                Cuarteto de Nos 
+                Buenos Muchachos
+                Once Tiros
+                La Trampa
+              </p>
+            </section>
+          </div>
+          <h1>Escenario 2</h1>
+          <section>
+            <p>Diego Rossberg, Alejandro Balbis, Pablo y Maxi Porciúncula, Lucia Ferreira, Chala Madre (trío acústico), Santi Batello y La Banderola, Diego Matturro, Booom Plan, Gerardo Dorado “El Aleman”, Horacio di Yorio,  Andres Stagnaro, Gustavo “Condor” Caballero, Los Sapos Tetones, Emisión, Aidita Martínez y Maximiliano Nathan, Trio Salu, Luciano y German Barrios, "Los acosadores de la murga” , Blues del Trueno, Tercer Mundo, Duo Nuevo Horizonte, Horacio Urtiaga y su banda, Diego Elissalde, Los discordinados, Dill Kee Rehae, Sebastián García y Su Banda, Juca Meyer, “Daniela”, "Layera y sus secuaces” , Gustavo Piñeyro"el Gauchito" y sus músicos , Julio Falero y su banda , Crápulas, La Taddey y Luis Torres</p>
+          </section>
+          <h1>Escenario para niños</h1>
+          <section>
+            <p>
+              Teatro - Y vivieron felices sin comer perdices
+              Musica - Roy berocay y Ruperto rock and roll / Frutas Planetas / Juan Retazo / Jorge Bonaldi y Adriana Ducret Ex- Canciones para no dormir la siesta.
+            </p>
+          </section>
+        </div>
 	    </div> 
     </div>
     <div id="info" class="parallax__group">
-      <div class="parallax__layer parallax__layer--base">
-        <div class="title">Base Layer</div>
-      </div>
-      <div class="parallax__layer parallax__layer--back">
-        <div class="title">Background Layer</div>
+    
+    
+        <div class="parallax__layer parallax__layer--back">
+
       </div>
     </div>
     <div id="fiesta" class="parallax__group">
-      <div class="parallax__layer parallax__layer--fore">
-        <div class="title">Foreground Layer</div>
-      </div>
       <div class="parallax__layer parallax__layer--base">
+        <div class="bottom_izq"></div>
+      </div>
+      <div class="parallax__layer parallax__layer--fore">
         <div class="title">Base Layer</div>
       </div>
     </div>
     <div id="contacto" class="parallax__group">
-      <div class="parallax__layer parallax__layer--base">
+       <div class="parallax__layer parallax__layer--fore">
+        <div class="bottom"></div>
+        <div class="cerro"></div>
+        <div class="pasto"></div>
+      </div>
+
+      <div class="parallax__layer parallax__layer--base" >
+        <div class="rojo"></div>
+      </div>
+      <div class="parallax__layer parallax__layer--fore" >
         	
         	<form class='center' action="mailto:rodrigo.rossi.trabal@gmail.com" method="POST">
 			  <div class="form-group">
@@ -336,9 +183,6 @@
 			  <button type="submit" class="btn btn-primary">Enviar</button>
 			</form>
          
-      </div>
-      <div class="parallax__layer parallax__layer--back faster">
-        <div class="title">Background Layer</div>
       </div>
     </div>
   </div>
@@ -355,20 +199,22 @@
 
   	function setState(section){
   		lastId = section.replace('#', '');
-		history.pushState(null, null, section);
-		$('.brand').toggleClass('hidden', (section === '#inicio'));
+      $('.section-active').toggleClass('section-active');
+      $(section).toggleClass('section-active');
+		  history.pushState(null, null, section);
+		  $('.brand').toggleClass('hidden', (section === '#inicio'));
   	}
   	var clicked = false;
   	$('.menu .internal-link').bind('click', (e) => {
   		e.preventDefault();
   		var section = e.currentTarget.getAttribute('href');	
   		clicked = true;
-		document.querySelector(`.parallax-main ${section}`).scrollIntoView({ 
-		  behavior: 'smooth' 
-		});
-		setState(section);
-		$('.active').removeClass('active');
-		$(e.currentTarget.parent).addClass('active');
+  		document.querySelector(`.parallax-main ${section}`).scrollIntoView({ 
+  		  behavior: 'smooth' 
+  		});
+		  setState(section);
+  		$('.active').removeClass('active');
+  		$(e.currentTarget.parent).addClass('active');
   	});
   
     $('.parallax-main').scroll(function(){
