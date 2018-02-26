@@ -97,6 +97,86 @@
   	height: 50px;
   	z-index: 1;
   } 
+  .animated {
+  -webkit-animation-duration: 2.5s;
+  animation-duration: 2.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+@-webkit-keyframes bounce {
+  0%, 100% {
+    -webkit-transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-5px);
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+.bounce {
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
+}
+@-webkit-keyframes bounceInv {
+  0%, 100% {
+    -webkit-transform: translateY(0)  scaleX(-1) scaleY(1);
+  }
+  50% {
+    -webkit-transform: translateY(-5px)  scaleX(-1) scaleY(1);
+  }
+}
+@keyframes bounceInv {
+  0%, 100% {
+    transform: translateY(0)  scaleX(-1) scaleY(1);
+  }
+  50% {
+    transform: translateY(-5px)  scaleX(-1) scaleY(1);
+  }
+}
+.bounceInv_2 {
+  -webkit-animation-name: bounceInv;
+  animation-name: bounceInv;
+   -webkit-animation-duration: 3.5s;
+  animation-duration: 3.5s;
+}
+.bounceInv_3 {
+  -webkit-animation-name: bounceInv;
+  animation-name: bounceInv;
+   -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+}
+@-webkit-keyframes rotate {
+  0%, 100% {
+    -webkit-transform: translateY(0)  scaleX(-1) scaleY(1);
+  }
+  50% {
+    -webkit-transform: translateY(-5px)  scaleX(1) scaleY(-1);
+  }
+}
+@keyframes rotate {
+  0%, 100% {
+    transform:  translateY(0);
+  }
+  50% {
+    transform:  translateY(-10px);
+  }
+}
+.rotate {
+  -webkit-animation-name: rotate;
+  animation-name: rotate;
+   -webkit-animation-duration: 10s;
+  animation-duration: 10s;
+}
   @media screen and (min-width: 701px){
     .navbar-collapse{
       display: inline-block !important;
@@ -299,14 +379,29 @@
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
   }
-
+  .center-info{
+      text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
   @media screen and (max-width: 750px){
     .internal-link, .external-link{
       font-size: 12pt !important;
     }
   }
   @media screen and (max-width: 700px){
-
+   .center-info{
+    text-align: center;
+    position: absolute;
+    font-size: 12pt !important;
+    top: 50%;
+    transform: translateX(-50%);
+    padding-top: 0px;
+    width: 100%;
+    }
     .navbar-toggler{
       display: inline-block;
     }
