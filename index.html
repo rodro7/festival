@@ -27,24 +27,31 @@
 
 <body>
   <header>
-  	<nav>
-        <ul class="menu">
-        	<li class="brand hidden">
-        		<a class="internal-link" href="#inicio">
-        			<img src="/statics/icons/logo.svg" width="150px">
-        		</a> 
-        	</li>
-            <li><a class="internal-link" href="#bandas">Bandas</a></li>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+   <a class="" href="void:javasctipt(0)">
+              <img src="/statics/icons/logo.svg" width="150px">
+            </a> 
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto menu">
+      <li class="brand hidden"> 
+        <a class="internal-link" href="#inicio">
+              <img src="/statics/icons/logo.svg" width="150px">
+            </a> 
+      </li>
+       <li><a class="internal-link" href="#bandas">Bandas</a></li>
 
             <li><a class="internal-link" href="#info">Informacion</a></li>
 
             <li><a class="internal-link" href="#fiesta">Vivir la fiesta</a></li>
 
-            <li><a href="https://tickantel.com.uy/inicio/espectaculo/40004026/espectaculo/Festival%20del%20Lago%20Encantado?1" target="__blank">Entradas</a></li>
+            <li><a class="external-link" href="https://tickantel.com.uy/inicio/espectaculo/40004026/espectaculo/Festival%20del%20Lago%20Encantado?1" target="__blank">Entradas</a></li>
 
             <li><a class="internal-link" href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
+  </div>
+</nav>
   </header>
 
   <div class="parallax-main parallax">
@@ -189,7 +196,7 @@
   <script>
   	window.__forceSmoothScrollPolyfill__ = true;
 	var lastId,
-    topMenu = $(".menu"),
+    topMenu = $("nav"),
     // All list items
     menuItems = topMenu.find(".internal-link"),
     scrollItems = menuItems.map(function(){
@@ -205,8 +212,9 @@
 		  $('.brand').toggleClass('hidden', (section === '#inicio'));
   	}
   	var clicked = false;
-  	$('.menu .internal-link').bind('click', (e) => {
+  	$('nav .internal-link').bind('click', (e) => {
   		e.preventDefault();
+      $("button.navbar-toggler").click();
   		var section = e.currentTarget.getAttribute('href');	
   		clicked = true;
   		document.querySelector(`.parallax-main ${section}`).scrollIntoView({ 
