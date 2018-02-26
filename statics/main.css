@@ -266,7 +266,7 @@
     background-size: 100%;
     width: 40%;
     height: 100%;
-     margin-top: 12%;
+     margin-top: 9%;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -301,7 +301,8 @@
     background-position-y: bottom;
     position: absolute;
   }
-  form{
+  form{    
+    min-width: 300px;
     font-size: 12pt;
   }
   .cerro{
@@ -378,9 +379,20 @@
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    width: 80%;
+  }
+  form{    
+      min-width: 500px;
+      font-size: 12pt;
+    }
+  @media screen and (max-width: 1200px){
+    .center-bands{
+      width: 100%;
+    }
   }
   .center-info{
-      text-align: center;
+    font-size: 14pt;
+    text-align: center;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -393,14 +405,23 @@
     }
   }
   @media screen and (max-width: 700px){
+   .last-line{
+       margin-top: -1%;
+   }
+   .center-index{
+    height: 205px;
+    top: 50%;
+    transform: translateY(-50%);
+   }
    .center-info{
     text-align: center;
     position: absolute;
-    font-size: 12pt !important;
-    top: 50%;
-    transform: translateX(-50%);
-    padding-top: 0px;
-    width: 100%;
+    left: 50%;
+    top: 25%;
+    padding-top: 100px;
+    -webkit-transform: translate(-50%, -0%);
+    transform: translate(-50%, -0%);
+    width: 100%
     }
     .navbar-toggler{
       display: inline-block;
@@ -431,4 +452,17 @@
       margin-top: 50px;
       font-size: 13pt;
     }
+    form{    
+      min-width: 500px;
+      font-size: 12pt;
+    }
+  }
+@media screen and (max-width: 500px){
+   .last-line{
+       margin-top: -6%;
+   }
+   form{    
+    min-width: 300px;
+    font-size: 12pt;
+  }
   }

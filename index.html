@@ -24,37 +24,42 @@
 <body>
   <header>
     <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <img src="/statics/icons/logo.svg" width="150px">
-  </button>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <img src="/statics/icons/logo.svg" width="150px"/>
+      </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto menu">
-      <li class="brand hidden"> 
-        <a class="internal-link" href="#inicio">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto menu">
+          <li class="brand hidden"> 
+            <a class="internal-link" href="#inicio">
               <img src="/statics/icons/logo.svg" width="150px">
             </a> 
-      </li>
-       <li><a class="internal-link" href="#bandas">Bandas</a></li>
-
-            <li><a class="internal-link" href="#info">Informacion</a></li>
-
-            <li><a class="external-link" href="https://tickantel.com.uy/inicio/espectaculo/40004026/espectaculo/Festival%20del%20Lago%20Encantado?1" target="__blank">Entradas</a></li>
-
-            <li><a class="internal-link" href="#contacto">Contacto</a></li>
-  </div>
-</nav>
+          </li>
+          <li>
+            <a class="internal-link" href="#bandas">Bandas</a>
+          </li>
+          <li>
+            <a class="internal-link" href="#info">Informacion</a>
+          </li>
+          <li>
+            <a class="external-link" href="https://tickantel.com.uy/inicio/espectaculo/40004026/espectaculo/Festival%20del%20Lago%20Encantado?1" target="__blank">Entradas</a>
+          </li>
+          <li>
+            <a class="internal-link" href="#contacto">Contacto</a>
+          </li>
+      </div>
+    </nav>
   </header>
 
   <div class="parallax-main parallax">
   	<div id="inicio" class="parallax__group">
-  	  <div class="parallax__layer parallax__layer--fore">
+  	  <div class="parallax__layer parallax__layer--fore center-index">
         	<div class="festival-icon"></div>
         </div>
-      <div class="parallax__layer parallax__layer--base">
+      <div class="parallax__layer parallax__layer--base center-index">
         	<div class="del_lago-icon"></div>
       </div>
-      <div class="parallax__layer parallax__layer--back faster">
+      <div class="parallax__layer parallax__layer--back faster center-index">
           <div class="last-line">      
             <div class="encantado-icon"></div>
             <div class="fecha"></div>
@@ -68,7 +73,7 @@
         	<img src="/statics/icons/nube_der.svg" class="animated bounceInv_2" width="200px" style="position: relative;right:-20px;float: right;transform: scaleX(-1) scaleY(1);"/>
       </div>
     </div>
-    <div id="bandas" class="parallax__group">
+    <div id="bandas" class="parallax__group" style="z-index: -2;">
       <div class="parallax__layer parallax__layer--base"> 
         <img src="/statics/icons/leafs.svg" class="animated rotate">
       </div>
@@ -147,7 +152,8 @@
           <div class="bottom_izq"></div>
         </div>
         <div class="parallax__layer parallax__layer--fore">
-          <div class="center-info" style="font-size:12pt;">
+          <div class="center-info">
+           <h1>Informacion</h1>  
           Por primera vez, Flores recibe un evento de tan importante magnitud, en donde la zona de los Lagos de Andresito se transforma en un espacio de encuentro multicultural y convivencia.
           Tres días de fiesta antes de empezar el año, 30 bandas, circo, actividades deportivas, talleres, plaza de comidas y mucho más.
           Animate a vivir una experiencia diferente en un entrono natural único.
@@ -194,9 +200,9 @@
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="/statics/scripts/smoothscroll.min.js" defer></script>
+  <script src="/statics/scripts/smoothscroll.min.js"></script>
   <script>
   	window.__forceSmoothScrollPolyfill__ = true;
 	var lastId,
@@ -218,7 +224,7 @@
   	var clicked = false;
   	$('nav .internal-link').bind('click', (e) => {
   		e.preventDefault();
-      $("button.navbar-toggler").click();
+      
   		var section = e.currentTarget.getAttribute('href');	
   		clicked = true;
   		document.querySelector(`.parallax-main ${section}`).scrollIntoView({ 
@@ -226,7 +232,8 @@
   		});
 		  setState(section);
   		$('.active').removeClass('active');
-  		$(e.currentTarget.parent).addClass('active');
+  		$(e.currentTarget).parent().addClass('active');
+      $("button.navbar-toggler").click();
   	});
   
     $('.parallax-main').scroll(function(){
