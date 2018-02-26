@@ -282,7 +282,23 @@
   .escenario-1{
     display: flex
   }
+  .center-bands{
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
   @media screen and (max-width: 500px){
+    .center-bands{
+      text-align: center;
+      position: absolute;
+      left: 0%;
+      top: 0%;
+      -webkit-transform: translate(0%, 0%);
+      transform: translate(0, 0);
+    }
     .bottom{
       display: none;
     }
