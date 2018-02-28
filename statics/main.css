@@ -31,7 +31,6 @@
     transform: translate(-50%, -50%);
   }
 
-
 	.center {
 	    position: absolute;
     	left: 50%;
@@ -214,6 +213,8 @@
   	cursor: pointer;
   	text-decoration: none;
     font-size: 16pt;
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
   }
   .blue{
     color: #8ED4DB;
@@ -230,7 +231,7 @@
     text-decoration-style: solid;
     text-decoration-color: #8ED4DB;
     text-decoration-line: underline;
-
+    font-size: 18pt;
   }
   img[src^=logo]{
   	cursor: pointer;
@@ -351,6 +352,15 @@
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
   }
+  .section-active, .section-unactive{
+
+  }
+  .section-active{
+     
+  }
+  .section-unactive{
+     
+  }
   .center-text{
   	text-align: center;
   }
@@ -370,13 +380,13 @@
     transform: translate(-50%, 0%);
   }
   .amarillo{
-     background-image: url('/statics/icons/amarillo.svg');
-background-repeat: no-repeat;
+    background-image: url(/statics/icons/amarillo.svg);
+    background-repeat: no-repeat;
     width: 409px;
     height: 300px;
     position: absolute;
-    left: 0;
-   bottom: -300px;
+    left: calc(100% - 200px);
+    bottom: -500px;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     background-position-x: right;

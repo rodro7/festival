@@ -187,7 +187,7 @@
     </div>
     <div id="info" class="parallax__group">
       <div class="parallax__layer parallax__layer--base">
-          <img src="/statics/icons/leafs.svg" class="animated rotate">
+          <img src="/statics/icons/leafs.svg" class="animated rotate"  style="max-width: 1000px;">
           <div class="amarillo"></div>
         </div>
         <div class="parallax__layer parallax__layer--fore">
@@ -256,8 +256,8 @@
 
   	function setState(section){
   		lastId = section.replace('#', '');
-      $('.section-active').toggleClass('section-active');
-      $(section).toggleClass('section-active');
+      $('.section-active').removeClass('section-active').addClass('section-unactive');
+      $(section).addClass('section-active').removeClass('section-unactive');
 		  history.pushState(null, null, section);
 		  $('.brand').toggleClass('hidden', (section === '#inicio'));
   	}
