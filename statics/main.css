@@ -8,6 +8,7 @@
 
   body {
     font: 100% / 1.5 Arial;
+    text-shadow: 2px 2px #000;
   }
 
   * {
@@ -214,6 +215,16 @@
   	text-decoration: none;
     font-size: 16pt;
   }
+  .blue{
+    color: #8ED4DB;
+  }
+  .yellow{
+    color: #ef88b7;
+  }
+  .orange{
+    color: #F09C4C;
+  }
+
   .menu li a:hover, .menu li.active a {
   	color: #F09C4C;
     text-decoration-style: solid;
@@ -360,14 +371,15 @@
   }
   .amarillo{
      background-image: url('/statics/icons/amarillo.svg');
-    background-repeat: no-repeat;
+background-repeat: no-repeat;
     width: 409px;
     height: 300px;
     position: absolute;
-    left: 400px;
-    bottom: 0;
+    left: 0;
+   bottom: -300px;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, 0%);
+    transform: translate(-50%, -50%);
+    background-position-x: right;
   }
   .escenario-1{
     display: flex
