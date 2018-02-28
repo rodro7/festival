@@ -481,6 +481,11 @@
     }
   }
 @media screen and (max-width: 500px){
+  .navbar-collapse {
+    text-align: center;
+    background-color: #1b1c38 !important;
+    border-radius: 50%;
+  }
    .last-line{
        margin-top: -6%;
    }
