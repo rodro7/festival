@@ -434,12 +434,22 @@
         text-align: justify;
     padding: 20px;
   }
+ 
+  form input, form textarea{
+    opacity: .5;
+  }
+  form input:hover, form textarea:hover {
+    opacity: 1;
+  }
   @media screen and (max-width: 750px){
     .internal-link, .external-link{
       font-size: 12pt !important;
     }
   }
   @media screen and (max-width: 700px){
+    form{
+      margin-top: 70px;
+    }
     .amarillo{ 
       background-image: url(/statics/icons/amarillo.svg);
       background-repeat: no-repeat;
