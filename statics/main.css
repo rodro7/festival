@@ -304,11 +304,11 @@
     right: -9px;
   }
    .bottom_izq{
-    background-image: url(/statics/icons/bottom_izq.svg);
+    background-image: url(/statics/icons/piso.svg);
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
-    background-size: 100%;
+    background-size: 180%;
     background-position-x: center;
     background-position-y: bottom;
     position: absolute;
@@ -380,19 +380,30 @@
     transform: translate(-50%, 0%);
   }
   .amarillo{
-    background-image: url(/statics/icons/amarillo.svg);
+     background-image: url(/statics/icons/amarillo.svg);
     background-repeat: no-repeat;
-    width: 409px;
-    height: 300px;
+    width: 500px;
+    height: 349px;
     position: absolute;
-    left: calc(100% - 200px);
-    bottom: -500px;
+    left: 50%;
+    bottom: -50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    background-position-x: right;
+    background-position-x: center;
+    background-size: 300px;
+  }
+
+  .celeste {
+    top: -200px;width:50%;max-width: 400px; left: -100px; position: absolute;
+     -webkit-animation-delay: 2s; 
+    animation-delay: 2s;
+
   }
   .escenario-1{
     display: flex
+  }
+  .bandas section{
+    padding: 20px;
   }
   .center-bands{
     text-align: center;
@@ -420,6 +431,8 @@
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+        text-align: justify;
+    padding: 20px;
   }
   @media screen and (max-width: 750px){
     .internal-link, .external-link{
@@ -427,6 +440,18 @@
     }
   }
   @media screen and (max-width: 700px){
+    .amarillo{ 
+      background-image: url(/statics/icons/amarillo.svg);
+      background-repeat: no-repeat;
+      width: 409px;
+      height: 300px;
+      position: absolute;
+      left: calc(100% - 200px);
+      bottom: -500px;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      background-position-x: right;
+    }
    .last-line{
        margin-top: -1%;
    }
@@ -436,7 +461,7 @@
     transform: translateY(-50%);
    }
    .center-info{
-      text-align: center;
+      text-align: justify;
       position: absolute;
       left: 50%;
       top: 25%;
@@ -445,6 +470,7 @@
       transform: translate(-50%, -0%);
       width: 100%;
       font-size: 10pt;
+          margin-top: 350px;
     }
     .navbar-toggler{
       display: inline-block;
@@ -460,7 +486,7 @@
       -webkit-transform: translate(0%, 0%);
       transform: translate(0, 0);
     }
-    .bottom{
+    .bottom, .cerro, .pasto{
       display: none;
     }
     .bandas{
