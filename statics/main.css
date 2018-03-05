@@ -450,6 +450,9 @@
     form{
       margin-top: 70px;
     }
+    .celeste {
+      left: -70px;
+    }
     .amarillo{ 
       background-image: url(/statics/icons/amarillo.svg);
       background-repeat: no-repeat;
